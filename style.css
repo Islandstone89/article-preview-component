@@ -86,6 +86,7 @@ textarea:not([rows]) {
 
     --clr-dark-grey-blue: hsl(217, 19%, 35%);
     --clr-desaturated-dark-blue: hsl(214, 17%, 51%);
+    --clr-desaturated-darker-blue: hsl(from var(--clr-desaturated-dark-blue) h s 40%);
     --clr-grayish-blue: hsl(212, 23%, 69%);
     --clr-light-grayish-blue: hsl(210, 46%, 95%);
     --clr-white: hsl(0, 0%, 100%);
@@ -111,7 +112,7 @@ textarea:not([rows]) {
 }
 
 .flow {
-    --flow-space: 1em;
+    --flow-space: 1.5em;
 }
 
 .flow > * + * {
@@ -123,6 +124,7 @@ textarea:not([rows]) {
 
 body {
     background-color: var(--clr-light-grayish-blue);
+    color: var(--clr-desaturated-darker-blue);
     font-family: var(--ff-manrope);
     font-weight: var(--fw-500);
     font-size: var(--fs-regular);
@@ -136,9 +138,20 @@ body {
 
 .card {
     background-color: var(--clr-white);
-    max-width: 40rem;
+    max-width: 55rem;
     border-radius: 10px;
     overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @media (width > 40rem) {
+      grid-template-columns: 2fr 3fr;
+    }
+}
+
+.main-image {
+  height: 100%;
+  object-fit: cover;
 }
 
 .content {
@@ -160,19 +173,51 @@ body {
 .author-image {
     border-radius: 50%;
     object-fit: cover;
+    width: 20%;
 }
 
 .author-name {
     font-weight: var(--fw-700);
 }
 
+.published {
+  --flow-space: .1em;
+}
+
 .share {
-    background-color: var(--clr-dark-grey-blue);
-    color: var(--clr-desaturated-dark-blue);
     padding: 1rem;
+}
+
+.btn {
+  background-color: var(--clr-light-grayish-blue);
+  border: none;
+  border-radius: 50%;
+  padding: 1.2em;
+  cursor: pointer;
+
+  &[aria-pressed="true"] {
+    background-color: var(--clr-desaturated-dark-blue);
+  }
+
+  &[aria-pressed="true"] {
+    + .social-media {
+      visibility: visible;
+    }
+  }
+}
+
+.social-media {
+  visibility: hidden;
+  background-color: var(--clr-dark-grey-blue);
+  border-radius: 5px;
+  padding: 1em 2em;
+  display: flex;
+  gap: .5rem;
+  align-items: center;
 }
 
 .social-media-paragraph {
     text-transform: uppercase;
     letter-spacing: .5ch;
+    color: var(--clr-light-grayish-blue);
 }
