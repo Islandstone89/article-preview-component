@@ -1,0 +1,178 @@
+
+/* CSS RESET */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin: 0;
+}
+
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/* Avoid orphans on paragraphs */
+p {
+    text-wrap: pretty;
+}
+
+/* A elements that don't have a class get default styles */
+a {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+  text-decoration: none;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+
+/* FONTS */
+
+@font-face {
+    font-family: 'Manrope';
+    src: url(assets/fonts/Manrope-Medium.woff2) format("woff2");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url(assets/fonts/Manrope-Bold.woff2) format("woff2");
+    font-weight: 700;
+}
+
+
+/* CUSTOM PROPERTIES */
+
+:root {
+    /* COLORS */
+
+    --clr-dark-grey-blue: hsl(217, 19%, 35%);
+    --clr-desaturated-dark-blue: hsl(214, 17%, 51%);
+    --clr-grayish-blue: hsl(212, 23%, 69%);
+    --clr-light-grayish-blue: hsl(210, 46%, 95%);
+    --clr-white: hsl(0, 0%, 100%);
+
+    /* TYPOGRAPHY */
+
+    --fs-regular: .8rem;
+    --ff-manrope: 'Manrope', sans-serif;
+    --fw-500: 500;
+    --fw-700: 700;
+}
+
+
+/* UTILITIES */
+
+.visually-hidden {
+    clip-path: inset(50%);
+    position: absolute;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+}
+
+.flow {
+    --flow-space: 1em;
+}
+
+.flow > * + * {
+    margin-block-start: var(--flow-space, 1em);
+}
+
+
+/* GENERAL STYLING */
+
+body {
+    background-color: var(--clr-light-grayish-blue);
+    font-family: var(--ff-manrope);
+    font-weight: var(--fw-500);
+    font-size: var(--fs-regular);
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100svh;
+}
+
+.card {
+    background-color: var(--clr-white);
+    max-width: 40rem;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.content {
+    padding: 2rem;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.author-image {
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-name {
+    font-weight: var(--fw-700);
+}
+
+.share {
+    background-color: var(--clr-dark-grey-blue);
+    color: var(--clr-desaturated-dark-blue);
+    padding: 1rem;
+}
+
+.social-media-paragraph {
+    text-transform: uppercase;
+    letter-spacing: .5ch;
+}
