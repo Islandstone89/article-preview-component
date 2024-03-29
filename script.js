@@ -1,9 +1,15 @@
 
 /* Select the button */
-let btn = document.querySelector(".btn");
+let btn = document.querySelector(".js-btn");
 
 /* Add event listener */
 btn.addEventListener("click", (e) => {
     e.preventDefault
-    btn.setAttribute("aria-pressed", "true")
+
+    if (btn.getAttribute("aria-expanded") === "false") {
+        btn.setAttribute("aria-expanded", "true")
+    }
+    else {
+        btn.setAttribute("aria-expanded", "false")
+    }
 })
