@@ -150,6 +150,8 @@ body {
     }
 }
 
+/* IMAGE */
+
 .main-image {
   height: 100%;
   object-fit: cover;
@@ -161,21 +163,26 @@ body {
 }
 
 
+/* CONTENT */
 
-.content {
-    padding: 2rem;
+:is(.content-text, .info) {
+  padding-inline: 2rem;
 }
+
+
 
 .info {
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
+    padding-block: 1em;
 
     @media (width > 40rem) {
       position: initial;
     }
 }
+
 
 /* AUTHOR */
 
@@ -188,7 +195,7 @@ body {
 .author-image {
     border-radius: 50%;
     object-fit: cover;
-    width: 20%;
+    width: 15%;
 }
 
 .author-name {
@@ -212,19 +219,39 @@ body {
   padding: 1.2em;
   cursor: pointer;
   z-index: 2;
+  position: absolute;
+  top: 15%;
+  right: 5%;
  
+  .icon-share path {
+    fill: var(--clr-dark-grey-blue);
+  }
 
   &[aria-expanded="true"] {
-    background-color: var(--clr-desaturated-dark-blue);
-
-    + .social-media {
-      visibility: visible;
-    }
+    background-color: var(--clr-grayish-blue);
 
     .icon-share path{
-      fill: var(--clr-light-grayish-blue);
+      fill: var(--clr-white);
     }
   }
+
+  @media (width < 25rem) {
+    right: 1%;
+  }
+
+  @media (width > 40rem) {
+    z-index: initial;
+    position: initial;
+
+    &[aria-expanded="true"] {
+      background-color: var(--clr-desaturated-dark-blue);
+    }
+  }
+}
+
+
+.btn-wrapper:has(.btn[aria-expanded="true"]) + .social-media {
+  visibility: visible;
 }
 
 
@@ -241,7 +268,8 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-
+  z-index: 1;
+  
   @media (width > 40rem) {
     top: 43%;
     right: -6%;
@@ -271,9 +299,6 @@ body {
   }
 }
 
-.social-media img {
-  width: 50px;
-}
 
 .social-media-paragraph {
     text-transform: uppercase;
