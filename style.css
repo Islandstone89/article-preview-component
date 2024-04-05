@@ -125,7 +125,7 @@ textarea:not([rows]) {
 body {
     background-color: var(--clr-light-grayish-blue);
     color: var(--clr-desaturated-darker-blue);
-    font-family: var(--ff-manrope);
+    font-family: var(--ff-manrope), sans-serif;
     font-weight: var(--fw-500);
     font-size: var(--fs-regular);
     padding: 2rem;
