@@ -137,7 +137,6 @@ body {
 }
 
 .card {
-    
     background-color: var(--clr-white);
     max-width: 50rem;
     border-radius: 10px;
@@ -168,8 +167,6 @@ body {
 :is(.content-text, .info) {
   padding-inline: 2rem;
 }
-
-
 
 .info {
     display: flex;
@@ -274,7 +271,6 @@ body {
     top: 43%;
     right: -6%;
     left: unset;
-    
     width: fit-content;
     height: fit-content;
     border-radius: 10px 10px 10px 10px;

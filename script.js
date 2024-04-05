@@ -1,5 +1,5 @@
 
-/* Select the button */
+/* Select the button wrapper and button */
 let btnWrapper = document.querySelector(".btn-wrapper"); 
 let btn = document.querySelector(".js-btn");
 
